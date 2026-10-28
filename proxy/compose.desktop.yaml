@@ -1,0 +1,8 @@
+# Use together with compose.yaml; stop the headless instance before switching.
+services:
+  soutubot:
+    command: ["sh", "/app/proxy/desktop.sh"]
+    ports:
+      - "127.0.0.1:6080:6080"
+    environment:
+      SOUTUBOT_HEADLESS: "false"

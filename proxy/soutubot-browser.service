@@ -1,0 +1,17 @@
+[Unit]
+Description=SoutuBot browser companion for AstrBot image search
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=astrbot
+WorkingDirectory=/opt/astrbot_plugin_imagesearch
+EnvironmentFile=/etc/soutubot-browser.env
+ExecStart=/opt/astrbot_plugin_imagesearch/.venv-proxy/bin/python -m uvicorn proxy.app:app --host 127.0.0.1 --port 8787
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=20
+
+[Install]
+WantedBy=multi-user.target

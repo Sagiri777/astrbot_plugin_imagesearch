@@ -1,0 +1,25 @@
+{
+  "enable_yandex": {"description": "启用 Yandex", "type": "bool", "default": true},
+  "enable_saucenao": {"description": "启用 SauceNAO", "type": "bool", "default": true},
+  "enable_ascii2d": {"description": "启用 ascii2d", "type": "bool", "default": true},
+  "enable_soutubot": {"description": "启用 SoutuBot 本子搜索", "type": "bool", "default": true},
+  "enable_avscan": {"description": "启用 AVScan 番号搜索", "type": "bool", "default": true},
+  "default_platforms": {
+    "description": "普通搜图的默认来源",
+    "type": "list",
+    "default": ["yandex", "saucenao", "ascii2d"],
+    "hint": "可填写 yandex、saucenao、ascii2d；本子和番号来源须明确指定。"
+  },
+  "saucenao_api_key": {"description": "SauceNAO API Key", "type": "string", "default": "", "hint": "在 https://saucenao.com/user.php?page=search-api 获取；为空时跳过该来源。"},
+  "proxy": {"description": "图片下载与通用来源/AVScan 的出站代理", "type": "string", "default": "", "hint": "例如 http://127.0.0.1:7890 或 socks5://127.0.0.1:7890；SoutuBot 的浏览器代理在独立服务中配置。"},
+  "soutubot_base_url": {"description": "SoutuBot 服务地址", "type": "string", "default": "http://127.0.0.1:8787", "hint": "同网络 Docker 使用 http://soutubot:8787；可直连时填写 https://soutubot.moe。"},
+  "soutubot_token": {"description": "浏览器服务鉴权 Token", "type": "string", "default": "", "hint": "须与服务端 SOUTUBOT_TOKEN 一致；直连模式留空。"},
+  "avscan_base_url": {"description": "AVScan 服务地址", "type": "string", "default": "https://avscan.cc"},
+  "timeout": {"description": "通用平台/下载超时（秒，5–180）", "type": "int", "default": 30},
+  "soutubot_timeout": {"description": "SoutuBot 超时（秒，10–300）", "type": "int", "default": 120},
+  "wait_timeout": {"description": "命令后等待图片时间（秒，1–300）", "type": "int", "default": 60},
+  "max_results": {"description": "命令每个平台最多展示条数（1–10）", "type": "int", "default": 3},
+  "max_download_mb": {"description": "输入图片下载上限（MiB，1–30）", "type": "int", "default": 10},
+  "show_thumbnails": {"description": "命令发送每个平台首条结果缩略图", "type": "bool", "default": true},
+  "ascii2d_feature_search": {"description": "ascii2d 使用特征搜索（关闭时使用色合搜索）", "type": "bool", "default": false}
+}
